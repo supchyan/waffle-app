@@ -52,7 +52,3 @@
     },
   }
 </script>
-
-<script setup>
-
-</script>
