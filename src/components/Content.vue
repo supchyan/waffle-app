@@ -1,32 +1,59 @@
 <template class="pa-0 ma-0">
-  <v-sheet class="d-flex justify-center align-top">
+  <v-sheet class="d-flex justify-center align-top h-screen">
     <div>
-      <v-sheet class="d-flex">
+      <v-sheet class="d-flex h-screen">
         <v-sheet class="flex-column">
-          <v-card 
-            rounded
-            style="
-              box-shadow: none;
-              margin-bottom: 32px;
-              margin-right: 16px;
-              border-radius:0px 1000px 1000px 0px;
-              background-color: #525252;
-              color: #fff; font-family:
-              'Montserrat Alternates';">
-            <div class="pa-4" style="font-weight: 900; font-size: 25px;">Выпечка</div>
-          </v-card>
-          <v-card 
-            rounded
-            style="
-              box-shadow: none;
-              margin-bottom: 32px;
-              margin-right: 16px;
-              border-radius:0px 1000px 1000px 0px;
-              background-color: #fff;
-              color: #525252; font-family:
-              'Montserrat Alternates';">
-            <div class="pa-4" style="font-weight: 900; font-size: 25px;">ЛТЛДТЦУЛДА Уоцлдаоц</div>
-          </v-card>
+          <!-- book block vvv -->
+          <div>
+            <v-card 
+              class="d-flex align-center"
+              rounded
+              style="
+                box-shadow: none;
+                padding: 0px 100px;
+                margin-bottom: 32px;
+                margin-right: 16px;
+                border-radius:0px 1000px 1000px 0px;
+                background-color: #525252;
+                color: #fff; font-family:
+                'Montserrat Alternates';">
+              <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon>
+              <div class="pa-4" style="font-weight: 900; font-size: 25px;">Выпечка</div>
+            </v-card>
+            <v-card 
+              class="d-flex align-center"
+              rounded
+              style="
+                box-shadow: none;
+                padding: 0px 100px;
+                margin-bottom: 32px;
+                margin-right: 16px;
+                border-radius:0px 1000px 1000px 0px;
+                background-color: #525252;
+                color: #fff; font-family:
+                'Montserrat Alternates';">
+              <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon>
+              <div class="pa-4" style="font-weight: 900; font-size: 25px;">Выпечка</div>
+            </v-card>
+            <v-card 
+              class="d-flex align-center"
+              rounded
+              style="
+                box-shadow: none;
+                padding: 0px 100px;
+                margin-bottom: 32px;
+                margin-right: 16px;
+                border-radius:0px 1000px 1000px 0px;
+                background-color: #525252;
+                color: #fff; font-family:
+                'Montserrat Alternates';">
+              <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon>
+              <div class="pa-4" style="font-weight: 900; font-size: 25px;">Выпечка</div>
+            </v-card>
+          </div>
+          <!-- book block ^^^ -->
+
+          <!-- book navigation vvv -->
           <v-sheet class="d-flex" style="align-items: center; justify-content: center; margin-right: 16px;">
             <v-btn color="primary" class="mx-4" icon>
               <v-icon>mdi-plus</v-icon>
@@ -37,11 +64,18 @@
               <v-tooltip activator="parent" location="bottom" text="Удалить" style="font-family: 'Montserrat Alternates'; font-weight: 900;"></v-tooltip>
             </v-btn>
           </v-sheet>
+          <!-- book navigation ^^^ -->
         </v-sheet>
-        <v-img class="ma-8 pa-8" height="668" max-width="48" src="@/assets/Splitter.svg"/>
+
+        <v-sheet style="margin: -32px 0px;" class="d-flex align-center h-screen">
+          <v-img style="height: 700px; width: 100px;" src="@/assets/Splitter.svg"/>
+        </v-sheet>        
+      
       </v-sheet>
     </div>
+
     <div class="w-75">
+      <!-- recipe navigation vvv -->
       <v-sheet class="mx-8 d-flex justify-center align-center">
         <v-sheet class="w-100 d-flex justify-center align-center">
           <v-text-field
@@ -71,6 +105,9 @@
           </v-btn>
         </v-sheet>
       </v-sheet>
+      <!-- recipe navigation ^^^ -->
+
+      <!-- recipe block vvv -->
       <v-sheet class="mx-4 d-flex justify-center align-center">
         <v-card 
           rounded
@@ -101,6 +138,7 @@
           <div class="pa-4" style="font-weight: 400; font-size: 18px;">Описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание </div>
         </v-card>
       </v-sheet> 
+      <!-- recipe block ^^^ -->
     </div>
   </v-sheet>
 </template>
