@@ -3,19 +3,12 @@
     style="
       width: 300px;
       box-shadow: none;
-      padding: 0px 15px;
-      margin: 0px 0px 32px 0px;
+      padding: 15px;
+      margin-bottom: 32px;
       border-radius:15px;
       background-color: #525252;
       color: #fff;">
       <!-- <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon> -->
-    <v-textarea
-      style="font-family: 'Montserrat Alternates'; font-weight: 900; font-size: 10px;"
-      :model-value="this.setName()"
-      auto-grow
-      variant="plain"
-      rows="1">
-    </v-textarea>
+    <div id="book-name" style="font-family: 'Montserrat Alternates'; font-weight: 900; font-size: 24px;">🥐 Book name is placed right here </div>
   </v-card>
 </template>
-<script src="@/scripts/createBook"></script>
