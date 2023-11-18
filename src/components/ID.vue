@@ -15,8 +15,7 @@
         methods: {
             ClickToCopy() {
                 this.copiedID = document.getElementById('input-id').innerText;
-                alert(this.copiedID);
-                return this.copiedID;
+                return navigator.clipboard.writeText(this.copiedID);
             }
         }
     }
