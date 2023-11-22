@@ -3,8 +3,8 @@
     id="recipe-body"
     rounded
     class="w-100">
-    <div id="note-name" class="pa-4" style="font-weight: 900; font-size: 25px; user-select: none;">Name name name</div>
-    <div id="note-desc" class="pa-4" style="font-weight: 400; font-size: 18px; user-select: none;">description description description description description description description description description</div>
+    <div id="recipe-name" class="pa-4" style="font-weight: 900; font-size: 25px; user-select: none;">A new recipe</div>
+    <div id="recipe-desc" class="pa-4" style="font-weight: 400; font-size: 18px; user-select: none;">Hello there!</div>
   </v-card>
 </template>
 <style>
@@ -13,6 +13,7 @@
     margin-bottom: 32px;
     border-radius:15px;
     max-height: 300px;
+    min-width: 500px;
     background-color: #F3DB5A;
     color: #453C0D;
   }

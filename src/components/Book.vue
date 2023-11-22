@@ -1,11 +1,11 @@
 <template v-slot:default="{ item }">
   <v-card
     id="book"
-    v-on:click="bookSelect">
+    v-on:click="BookSelect">
       <!-- <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon> -->
     <div 
       id="book-name"
-      >🥐 Book name is placed right here</div>
+      >🥐 A new book</div>
   </v-card>
 </template>
 <style>
@@ -32,10 +32,10 @@
 <script>
   export default {
     data: () => ({
-      component: document.getElementById('book'),
+      component: document.documentElement,
     }),
     methods: {
-      bookSelect() {
+      BookSelect() {
         this.component.style.setProperty('--bgColor', '#525252');
         this.component.style.setProperty('--textColor', '#fff');
       }
