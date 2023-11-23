@@ -1,22 +1,21 @@
 <template>
-    <v-sheet 
-        v-scroll.self="Scroll"
+    <v-sheet
         style="
-            overflow-y: scroll;
+            overflow-y: hidden;
             max-height: 100vh;
             background: transparent;">
         <!-- v-on:scroll="ScrollOverlay"> -->
         <v-card
+            @vnode-mounted="HoverAI"
             v-on:vnode-mounted="Spam"
             id="overlay-body"
             class="d-flex justify-left align-top pa-8"
             rounded="xl"
             width="600"
-            min-height="600"
-            style="margin-top: 20vh; margin-bottom: 20vh;">
+            min-height="600">
             <v-col>
                 <v-row class="d-flex justify-left align-center">
-                    <div id="title" style="font-size: 24px; font-weight: 900;"> {{ scrollInvoked }} A new recipe</div>
+                    <div id="title" style="font-size: 24px; font-weight: 900;">A new recipe</div>
                     <v-icon class="px-4" v-on:click="EditRecipe">mdi-pencil</v-icon>
                 </v-row>
                 <v-row>
@@ -27,17 +26,23 @@
     </v-sheet>
 </template>
 <style>
+    :root {
+        --margin: 0vh;
+    }
     #overlay-body {
         background-color: #F3DB5A;
         user-select: none;
+        margin-top: var(--margin);
+        margin-bottom: 20vh;
     }
 </style>
 <script>
     export default {
     data: () => ({
-        scrollInvoked: 0,
+        mousePos: 0,
+        oldMousePos: 0,
         description: "",
-        component: document.getElementById('overlay-body'),
+        component: document.documentElement,
     }),
     methods: {
         Spam() {
@@ -48,8 +53,11 @@
         EditRecipe() {
             return;
         },
-        Scroll() {
-            this.scrollInvoked++
+        HoverAI() {
+            window.addEventListener('mousedown', (event) => {
+                this.mousePos = { x: event.clientX, y: event.clientY };
+                this.component.style.setProperty('--margin', this.mousePos.y/10 + 'vh');
+            });
         },
     },
   }
