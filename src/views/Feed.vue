@@ -11,9 +11,15 @@
     <v-sheet class="d-flex h-screen" style="padding: 32px 0px;">
       <v-sheet class="mx-8" style="overflow-y: scroll;">
         <!-- book block vvv -->
-        <v-virtual-scroll :items="bookArr">
-          <Book />  
-        </v-virtual-scroll>
+        <v-item-group mandatory>
+          <v-virtual-scroll :items="bookArr">
+            <v-container>
+              <v-item v-slot="{ isSelected, toggle }">
+                <Book :color="isSelected ? 'primary' : ''" @click="toggle"/> 
+              </v-item>
+            </v-container>
+          </v-virtual-scroll>
+        </v-item-group>
         <!-- book block ^^^ -->
 
         <!-- book navigation vvv -->
