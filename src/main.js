@@ -18,3 +18,6 @@ const app = createApp(App)
 registerPlugins(app)
 
 app.mount('#app')
+
+const globalVar = require('@/scripts/globalVar.js');
+registerPlugins(globalVar);

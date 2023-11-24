@@ -1,5 +1,6 @@
 <template v-slot:default="{ item }">
   <v-card 
+    v-on:click="ResetOverlayScroll"
     id="recipe-body"
     rounded
     class="w-100">
@@ -18,3 +19,15 @@
     color: #453C0D;
   }
 </style>
+<script>
+  export default {
+    data: () => ({
+
+    }),
+    methods: {
+      ResetOverlayScroll() {
+        
+      }
+    }
+  }
+</script>

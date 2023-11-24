@@ -1,13 +1,12 @@
 <template>
     <v-sheet
+        @vnode-mounted="ScrollAI"
         style="
             overflow-y: hidden;
             max-height: 100vh;
             background: transparent;">
-        <!-- v-on:scroll="ScrollOverlay"> -->
         <v-card
-            @vnode-mounted="HoverAI"
-            v-on:vnode-mounted="Spam"
+            @vnode-mounted="Spam"
             id="overlay-body"
             class="d-flex justify-left align-top pa-8"
             rounded="xl"
@@ -27,38 +26,53 @@
 </template>
 <style>
     :root {
-        --margin: 0vh;
+        --top: 200px;
     }
     #overlay-body {
         background-color: #F3DB5A;
         user-select: none;
-        margin-top: var(--margin);
-        margin-bottom: 20vh;
+        top: var(--top);
     }
 </style>
 <script>
     export default {
-    data: () => ({
-        mousePos: 0,
-        oldMousePos: 0,
-        description: "",
-        component: document.documentElement,
-    }),
-    methods: {
-        Spam() {
-            for(let i = 0; i < 1000; i++) {
-                this.description += "Hi! " 
-            }
+        data: () => ({
+            offset: 200, // top of the overlay
+            mousePos: 0,
+            oldMousePos: 0,
+            isScrolling: false,
+            scrollPos: 0,
+            oldScrollPos: 200, // depends on offset value
+            description: "",
+            component: document.documentElement,
+        }),
+        methods: {
+            Spam() {
+                for(let i = 0; i < 500; i++) {
+                    this.description += "Hello there! " 
+                }
+            },
+            EditRecipe() {
+                return;
+            },
+            ScrollAI() {
+                window.addEventListener('mousedown', (event) => {
+                    this.isScrolling = true;
+                    this.oldMousePos = { x: event.pageX, y: event.pageY };
+                });
+                window.addEventListener('mousemove', (event) => {
+                    if(!this.isScrolling) return;
+
+                    this.mousePos = { x: event.pageX, y: event.pageY };
+                    this.scrollPos = this.oldScrollPos + this.mousePos.y - this.oldMousePos.y;
+
+                    this.component.style.setProperty('--top', this.scrollPos + 'px');
+                });
+                window.addEventListener('mouseup', (event) => {
+                    this.isScrolling = false;
+                    this.oldScrollPos = this.scrollPos;
+                });
+            },
         },
-        EditRecipe() {
-            return;
-        },
-        HoverAI() {
-            window.addEventListener('mousedown', (event) => {
-                this.mousePos = { x: event.clientX, y: event.clientY };
-                this.component.style.setProperty('--margin', this.mousePos.y/10 + 'vh');
-            });
-        },
-    },
-  }
+    }
 </script>

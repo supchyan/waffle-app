@@ -5,7 +5,7 @@
       <!-- <v-icon style="padding: 30px 0px;">mdi-bookmark</v-icon> -->
     <div 
       id="book-name"
-      >🥐 A new book {{ MouseCoord }}</div>
+      >🥐 A new book</div>
   </v-card>
 </template>
 <style>
@@ -33,12 +33,8 @@
   export default {
     data: () => ({
       component: document.documentElement,
-      mouseCoord: 0,
     }),
     methods: {
-      MouseCoord() {
-        return this.mouseCoord = window.event.clientY;
-      },
       BookSelect() {
         this.component.style.setProperty('--bgColor', '#525252');
         this.component.style.setProperty('--textColor', '#fff');
