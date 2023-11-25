@@ -1,10 +1,5 @@
 <template v-slot:default="{ item }">
-  <v-card
-    id="book">
-    <div 
-      id="book-name"
-      >🥐 A new book</div>
-  </v-card>
+  <v-card id="book"></v-card>
 </template>
 <style>
   :root {
@@ -12,17 +7,12 @@
     --bgColor: #fff; 
   }
   #book {
+    user-select: none;
     width: 300px;
     box-shadow: none;
-    padding: 15px;
-    margin-bottom: 32px;
+    padding: 8px;
     border-radius:15px;
     background-color: var(--bgColor);
     color: var(--textColor);
-  }
-  #book-name {
-    font-weight: 900;
-    font-size: 24px;
-    user-select: none;
   }
 </style>

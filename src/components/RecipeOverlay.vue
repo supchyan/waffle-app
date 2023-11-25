@@ -1,28 +1,14 @@
 <template>
-    <v-sheet
+    <v-card
         @vnode-mounted="ScrollAI"
-        style="
-            overflow-y: hidden;
-            max-height: 100vh;
-            background: transparent;">
-        <v-card
-            @vnode-mounted="Spam"
-            id="overlay-body"
-            class="d-flex justify-left align-top pa-8"
-            rounded="xl"
-            width="600"
-            min-height="600">
-            <v-col>
-                <v-row class="d-flex justify-left align-center">
-                    <div id="title" style="font-size: 24px; font-weight: 900;">A new recipe</div>
-                    <v-icon class="px-4" v-on:click="EditRecipe">mdi-pencil</v-icon>
-                </v-row>
-                <v-row>
-                    <div id="recipe-desc">{{ description }}</div>
-                </v-row>
-            </v-col>
-        </v-card>
-    </v-sheet>
+        id="overlay-body"
+        class="pa-8"
+        rounded="xl"
+        width="600"
+        min-height="600"
+        title=""
+        text="">
+    </v-card>
 </template>
 <style>
     :root {

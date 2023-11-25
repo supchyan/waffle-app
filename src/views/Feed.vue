@@ -4,7 +4,7 @@
     <v-overlay 
       class="d-flex justify-center align-center" 
       v-model="recipeOverlay">
-      <RecipeOverlay />
+      <RecipeOverlay :title=recipeTitle :text=recipeDesc />
     </v-overlay>
     <!-- recipe overlay ^^^ -->
 
@@ -13,9 +13,9 @@
         <!-- book block vvv -->
         <v-item-group mandatory>
           <v-virtual-scroll :items="bookArr">
-            <v-container>
+            <v-container style="padding: 0px 32px 32px 0px;">
               <v-item v-slot="{ isSelected, toggle }">
-                <Book :color="isSelected ? 'primary' : ''" @click="toggle"/> 
+                <Book :title=bookTitle :color="isSelected ? 'primary' : ''" @click="toggle"/> 
               </v-item>
             </v-container>
           </v-virtual-scroll>
@@ -23,7 +23,7 @@
         <!-- book block ^^^ -->
 
         <!-- book navigation vvv -->
-        <v-sheet class="d-flex" style="align-items: center; justify-content: center; margin-right: 16px;">
+        <v-sheet class="d-flex" style="align-items: center; justify-content: center; margin-right: 32px;">
           <v-btn id="new-book" color="primary" class="mx-4" icon style="box-shadow: none;" v-on:click="AddBook">
             <v-icon>mdi-plus</v-icon>
             <v-tooltip activator="parent" location="bottom" text="Create a book" style="font-weight: 900;"></v-tooltip>
@@ -67,7 +67,7 @@
       <!-- recipe block vvv -->
       <v-sheet class="d-flex h-screen justify-center align-top flex-wrap" style="overflow: scroll;">
         <v-virtual-scroll :items="recipeArr" style="padding-bottom: 114px;">
-          <Recipe @click="recipeOverlay = !recipeOverlay"/>
+          <Recipe :title=recipeTitle :text=recipeDesc @click="recipeOverlay = !recipeOverlay"/>
         </v-virtual-scroll>
       </v-sheet> 
       <!-- recipe block ^^^ -->
@@ -85,6 +85,7 @@
     background: transparent;
   }
   #search {
+    user-select: none;
     font-weight: 900;
     margin: 0px 16px;
   }
@@ -92,6 +93,9 @@
 <script>
   export default {
       data: () => ({
+        bookTitle: '',
+        recipeTitle: '',
+        recipeDesc: '',
         recipeOverlay: false,
         m: 0, // book arr size
         n: 0, // recipe arr size
@@ -101,10 +105,15 @@
       methods: {
         AddBook() {
           this.m+=1;
+          this.bookTitle = 'A new book ';
+          this.bookTitle += this.m;
           this.bookArr = Array.from({ length: this.m }, a => a + 1);
         },
         AddRecipe() {
           this.n+=1;
+          this.recipeTitle = 'A new recipe ';
+          this.recipeTitle += this.n;
+          this.recipeDesc = 'Add your description';
           this.recipeArr = Array.from({ length: this.n }, b => b + 1);
         },
       }
