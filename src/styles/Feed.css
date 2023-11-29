@@ -1,0 +1,58 @@
+:root {
+    --overlay-top: 200px;
+}
+body {
+  font-family: 'Montserrat Alternates';
+  box-shadow: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+#search {
+  user-select: none;
+  font-weight: 900;
+  margin: 0px 16px;
+  box-shadow: none;
+}
+#book {
+  user-select: none;
+  width: 200px;
+  min-height: 50px;
+  box-shadow: none;
+  padding: 8px;
+  font-weight: 900;
+  font-size: 16px;
+}
+#recipe {
+  user-select: none;
+  box-shadow: none;
+  margin-bottom: 32px;
+  max-height: 300px;
+  min-width: 500px;
+  background-color: #F3DB5A;
+  color: #453C0D;
+}
+#recipe-title {
+  font-weight: 900;
+  font-size: 20px;
+}
+#recipe-overlay {
+  background-color: #F3DB5A;
+  user-select: none;
+  top: var(--overlay-top);
+  width: 600px;
+  padding: 32px;
+}
+#recipe-overlay-title {
+  font-size: 20px;
+  font-weight: 900;
+}
+#recipe-overlay-desc {
+  font-size: 16px;
+}
+#recipe-overlay-btn {
+  background-color: transparent;
+  color: black;
+}
